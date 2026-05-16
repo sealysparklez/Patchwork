@@ -7,13 +7,12 @@ export default function Home() {
       <main className={styles.main}>
         <Image
           className={styles.logo}
-          src="/Pictochat-revived-0.webp"
+          src="/next.svg"
           alt="Next.js logo"
-          width={200}
-          height={40}
+          width={100}
+          height={20}
           priority
         />
-        <div className={styles.maincontent}>
         <div className={styles.intro}>
           <h1>To get started, edit the page.tsx file.</h1>
           <p>
@@ -60,10 +59,6 @@ export default function Home() {
           >
             Documentation
           </a>
-        </div>
-        </div>
-        <div className={styles.lowerText}>
-          <h2>Description</h2>
         </div>
       </main>
     </div>
