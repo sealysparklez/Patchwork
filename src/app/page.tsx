@@ -60,20 +60,34 @@ export default function Home() {
     setCanvasColor(event.target.value);
   };
 
-  const submitDrawing = () => {
-    canvasRef.current?.exportImage('jpeg')
-    .then((data) =>{
-      console.log(data)
-      const now = new Date();
-      const timestamp = now.toISOString().replace(/[:.]/g, '-').slice(0, 19);
+  // const submitDrawing = () => {
+  //   canvasRef.current?.exportImage('jpeg')
+  //   .then((data) =>{
+  //     console.log(data)
+  //     const now = new Date();
+  //     const timestamp = now.toISOString().replace(/[:.]/g, '-').slice(0, 19);
 
-      const link = document.createElement('a')
-      link.href = data
-      // link.download = "canvas.png"
-      link.download = `canvas-${timestamp}.png`;
-      link.click()
-    })
-  };
+  //     const link = document.createElement('a')
+  //     link.href = data
+  //     // link.download = "canvas.png"
+  //     link.download = `canvas-${timestamp}.png`;
+  //     link.click()
+  //   })
+  // };
+
+  const submitDrawing = async () => {
+  const dataUrl = await canvasRef.current?.exportImage('jpeg');
+  if (!dataUrl) return;
+
+  const res = await fetch(dataUrl);
+  const blob = await res.blob();
+
+  const formData = new FormData();
+  formData.append('file', blob, 'drawing.jpg');
+
+  await handleUpload(formData);
+};
+
 
   return (
     <div className={styles.page}>
@@ -206,6 +220,7 @@ export default function Home() {
             Gallery
           </a>
         </div>
+          <p>You can optionally upload an image below.</p>
           <form onSubmit={(e) => {
             e.preventDefault();
             handleUpload(new FormData(e.currentTarget));
@@ -223,14 +238,15 @@ export default function Home() {
 
 
         </div>
-        <div className={styles.lowerText}>
-           </div>
           <h2> How to Use!</h2>
           <ol>
-            <li>Draw anything you want in the canvas.</li>
+            {/* <li>Draw anything you want in the canvas.</li>
             <li>Press "Submit Drawing". Your drawing will be downloaded to your device.</li>
             <li>Select "Choose File" and select your drawing from your downloads directory.</li>
-            <li>Press Upload to save your drawing to the online gallery for everyone to view!</li>
+            <li>Press Upload to save your drawing to the online gallery for everyone to view!</li> */}
+                        <li>Draw anything you want in the canvas.</li>
+            <li>Press "Submit Drawing". Your drawing will be saved to our sever.</li>
+            <li>You're done! Optionally, you can upload your own image.</li>
           </ol> 
           <h2 style={{ marginTop: "32px" }}> </h2>
           <h2>Creating connections through creativity</h2>
