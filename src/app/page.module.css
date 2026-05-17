@@ -144,21 +144,21 @@ a.secondary {
   }
 }
 
-/*
+
 @media (prefers-color-scheme: dark) {
   .logo {
     filter: invert();
   }
 
   .page {
-    --background: #000;
-    --foreground: #000;
+    --background: #ff8de2;
+    --foreground: #ff8de2;
 
-    --text-primary: #ededed;
-    --text-secondary: #999;
+    --text-primary: #ffffff;
+    --text-secondary: #ffffff;
 
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
+    --button-primary-hover: #ffffff;
+    --button-secondary-hover: #80df77;
+    --button-secondary-border: #80df77;
   }
 }
