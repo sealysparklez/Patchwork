@@ -1,10 +1,10 @@
 .page {
-  --background: #c57272;
-  --foreground: #fff;
+  background-color: #fd8989;
+  foreground-color: #fd8989;
 }
 
 .titleText{
-    
+
 }
 
 .grid {

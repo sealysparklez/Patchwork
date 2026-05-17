@@ -78,8 +78,23 @@ export default function Home() {
         </div>
         </div>
         <div className={styles.lowerText}>
-          <h2>Description</h2>
+          <h1>About</h1>
+           </div>
+
+          <div className={styles.purpose}>
+          <h2> Intended Purpose:</h2>
+          <p> This Website allows peope to show the creative sides of themselves by drawing. We show the drawings of people who used this into a gallery. </p>
+        </div>  
+
+        <div className={styles.connects}>
+          <h2> How it connects with Theme: </h2>
+          <p> Connects with joining creative people together to make connections by singular theme, whic in this case is by art. Also to bring back some happier times in life!</p>
         </div>
+        
+          <div className={styles.credits}>
+            <h4> Credits</h4>
+            <p> By: Jordan, Ashylen, Pyyra, and Ryan</p>
+          </div>
       </main>
     </div>
   );
