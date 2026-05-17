@@ -1,13 +1,13 @@
 .page {
-    --background: #ff8de2;
-    --foreground: #ff8de2;
+    --background: #f07d9d;
+    --foreground: #f07d9d;
 
     --text-primary: #ffffff;
     --text-secondary: #ffffff;
 
     --button-primary-hover: #ffffff;
-    --button-secondary-hover: #80df77;
-    --button-secondary-border: #80df77;
+    --button-secondary-hover: #73da6a;
+    --button-secondary-border: #b2e4b3;
 
   display: flex;
   flex: 1;
@@ -98,11 +98,13 @@
   height: 40px;
   padding: 0 16px;
   border-radius: 128px;
-  border: 1px solid transparent;
   transition: 0.2s;
   cursor: pointer;
   width: fit-content;
   font-weight: 500;
+  background-color: #b2e4b3;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(to bottom, rgba(255,255,255,0.4), rgba(255,255,255,0));
 }
 
 a.primary {
@@ -118,12 +120,12 @@ a.secondary {
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   a.primary:hover {
-    background: var(--button-primary-hover);
+    background: linear-gradient(to bottom, rgba(255,255,255,0.4), rgba(255,255,255,0)), var(--button-primary-hover);
     border-color: transparent;
   }
 
   a.secondary:hover {
-    background: var(--button-secondary-hover);
+    background: linear-gradient(to bottom, rgba(255,255,255,0.4), rgba(255,255,255,0)), var(--button-secondary-hover);
     border-color: transparent;
   }
 }
@@ -144,6 +146,35 @@ a.secondary {
   }
 }
 
-.logo{
-  filter: invert();
+
+.toolBar {
+  display: flex;
+  flex-direction: row;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  width: fit-content;
+}
+
+.toolBtn {
+  padding: 8px 16px;
+  border: none;
+  border-right: 1px solid #ccc;
+  background: #f07d9d;
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+}
+.toolBtn:last-child {
+  border-right: none;
+}
+
+.toolBtn:disabled {
+  background: #d4568a;
+  color: rgba(255,255,255,0.6);
+  cursor: default;
+}
+
+.toolBtn:hover:not(:disabled) {
+  background: linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(255,255,255,0)), #f07d9d;
 }

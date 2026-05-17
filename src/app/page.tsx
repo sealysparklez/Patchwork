@@ -44,10 +44,6 @@ export default function Home() {
     canvasRef.current?.clearCanvas();
   };
 
-  const handleResetClick = () => {
-    canvasRef.current?.resetCanvas();
-  };
-
   const handleStrokeWidthChange = (event: ChangeEvent<HTMLInputElement>) => {
     setStrokeWidth(+event.target.value);
   };
@@ -90,10 +86,10 @@ export default function Home() {
         <div className={styles.intro}>
           <h1>Tools</h1>
 
-          <div className="d-flex gap-2 align-items-center ">
+          <div className={styles.toolbar}>
             <button
               type="button"
-              className="btn btn-sm btn-outline-primary"
+              className={styles.toolbar}
               disabled={!eraseMode}
               onClick={handlePenClick}
             >
@@ -102,7 +98,7 @@ export default function Home() {
             
             <button
               type="button"
-              className="btn btn-sm btn-outline-primary"
+              className={styles.toolbar}
               disabled={eraseMode}
               onClick={handleEraserClick}
             >
@@ -111,31 +107,24 @@ export default function Home() {
 
             <button
               type="button"
-              className="btn btn-sm btn-outline-primary"
+              className={styles.toolbar}
               onClick={handleUndoClick}
             >
               Undo
             </button>
             <button
               type="button"
-              className="btn btn-sm btn-outline-primary"
+              className={styles.toolbar}
               onClick={handleRedoClick}
             >
               Redo
             </button>
             <button
               type="button"
-              className="btn btn-sm btn-outline-primary"
+              className={styles.toolbar}
               onClick={handleClearClick}
             >
               Clear
-            </button>
-            <button
-              type="button"
-              className="btn btn-sm btn-outline-primary"
-              onClick={handleResetClick}
-            >
-              Reset
             </button>
 
              
@@ -193,6 +182,16 @@ export default function Home() {
             strokeColor={strokeColor}
             canvasColor={canvasColor}
           />
+
+          <div className={styles.ctas}>
+          <a
+            type="button"
+            className={styles.secondary}
+            onClick={submitDrawing}
+            >
+              Submit Drawing
+          </a>
+        </div>
           <form onSubmit={(e) => {
             e.preventDefault();
             handleUpload(new FormData(e.currentTarget));
@@ -214,13 +213,6 @@ export default function Home() {
         </div>
 
           <div className={styles.intro}>
-            <button
-              type="button"
-              className="btn btn-sm btn-outline-primary"
-              onClick={submitDrawing}
-            >
-              Submit Drawing
-            </button>
           </div>
 
 
