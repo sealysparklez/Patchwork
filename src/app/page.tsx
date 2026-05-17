@@ -85,6 +85,7 @@ export default function Home() {
         />
       <div className={styles.maincontent}>
         <div className={styles.intro}>
+          <h2>"Stitching a community together, one artwork at a time"</h2>
           <h1>Tools</h1>
 
           <div className={styles.toolBar}>
@@ -158,14 +159,14 @@ export default function Home() {
               onChange={handleEraserWidthChange}
             />
             </div>
-          <div className="d-flex gap-2 align-items-center ">
-            <label htmlFor="color">Stroke color</label>
+          <div className={styles.colors}>
+            <label htmlFor="color">Stroke Color</label>
             <input
               type="color"
               value={strokeColor}
               onChange={handleStrokeColorChange}
             />
-            <label htmlFor="color">Canvas color</label>
+            <label htmlFor="color">Canvas Color</label>
             <input
               type="color"
               value={canvasColor}
@@ -219,25 +220,17 @@ export default function Home() {
 
         </div>
         <div className={styles.lowerText}>
-
-          <h1>About</h1>
            </div>
-
-
-          <div className={styles.purpose}>
-          <h2> Intended Purpose:</h2>
-          <p> This Website allows peope to show the creative sides of themselves by drawing. We show the drawings of people who used this into a gallery. </p>
-        </div>  
-
-        <div className={styles.connects}>
-          <h2> How it connects with Theme: </h2>
-          <p> Connects with joining creative people together to make connections by singular theme, whic in this case is by art. Also to bring back some happier times in life!</p>
-        </div>
-        
-          <div className={styles.credits}>
-            <h4> Credits</h4>
-            <p> By: Jordan, Ashylen, Sompan, and Ryan</p>
-          </div>
+          <h2> How to Use!</h2>
+          <ol>
+            <li>Draw anything you want in the canvas.</li>
+            <li>Press "Submit Drawing". Your drawing will be downloaded to your device.</li>
+            <li>Select "Choose File" and select your drawing from your downloads directory.</li>
+            <li>Press Upload to save your drawing to the online gallery for everyone to view!</li>
+          </ol> 
+          <h2 style={{ marginTop: "32px" }}> </h2>
+          <h2>Creating connections through creativity</h2>
+          <p>As people who participate in art communities, we noticed that creatives are always looking for new ways to build community and foster their skills. However, social media can often be a cruel place and tags can often make viewing a community's art disorganized. The community gallery puts everyone's art on display for everyone to enjoy without the clutter of social media.</p>
       </main>
     </div>
   );
